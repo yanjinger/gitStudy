@@ -5,6 +5,6 @@ import (
 )
 
 func Hello(sub string) {
-	var version string = "2.3.0"
+	var version string = "1.2.0"
 	fmt.Println(version, sub)
 }
