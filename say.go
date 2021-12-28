@@ -7,6 +7,6 @@ import (
 
 func Hello(sub string) {
 	_ = mongo.ClientStream
-	var version string = "1.2.1"
+	var version string = "1.4.1"
 	fmt.Println(version, sub)
 }
