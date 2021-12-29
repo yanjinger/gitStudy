@@ -1,0 +1,6 @@
+# 数据表头 有几行
+startRow = 1
+# sheet名称
+sheetName = "吸波数据"
+# 过滤下限
+Suffix = ".prn"
