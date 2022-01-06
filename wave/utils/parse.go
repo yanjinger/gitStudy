@@ -210,6 +210,7 @@ func parseLine(content string, splitChar string) []*Cell {
 			s = strings.TrimPrefix(s, "\"")
 			s = strings.TrimSuffix(s, "\"")
 		}
+		s = strings.TrimSpace(s)
 		cell := &Cell{Value: s}
 		cells = append(cells, cell)
 	}

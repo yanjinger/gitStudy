@@ -71,6 +71,7 @@ func main() {
 		infoV := info
 		wg.Add(1)
 		go func() {
+			defer wg.Done()
 			fmt.Println("\t process ", infoV)
 			newName := strings.Replace(infoV, utils.Suffix, utils.DestSuffix, -1)
 			utils.CopyFile(template, newName)
@@ -102,7 +103,12 @@ func main() {
 				for j := 0; j < 5; j++ {
 					columnName := utils.GetColumnIndexName1(j)
 					axis := fmt.Sprintf("%s%d", columnName, i-startRow+3+1)
-					excelFile.SetCellValue(sheetName, axis, txtSheet.Rows[i].Cells[j].Value)
+					v, err := txtSheet.Rows[i].Cells[j].Float()
+					if err != nil {
+						fmt.Println()
+						return
+					}
+					excelFile.SetCellValue(sheetName, axis, v)
 				}
 			}
 
@@ -124,7 +130,6 @@ func main() {
 				return
 			}
 			excelFile.SaveAs(newName)
-			wg.Done()
 		}()
 	}
 	wg.Wait()

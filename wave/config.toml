@@ -2,5 +2,5 @@
 startRow = 1
 # sheet名称
 sheetName = "吸波数据"
-# 过滤下限
+# 数据表的类型
 Suffix = ".prn"
